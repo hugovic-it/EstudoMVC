@@ -30,8 +30,8 @@ namespace EstudoMVC.Models
 
         [Required(ErrorMessage = "O campo avaliação é obrigatorio")]
         [Display(Name = "Avaliação")]
-        [RegularExpression(@"^[0-5]*$")] 
-        public string Avaliacao { get; set; }
+        [RegularExpression(@"^[0-5]*$", ErrorMessage ="Somente Números")] 
+        public int Avaliacao { get; set; }
 
     }
 }

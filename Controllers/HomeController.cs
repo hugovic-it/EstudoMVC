@@ -19,14 +19,35 @@ public class HomeController : Controller
     [Route("pagina-inicial/{id:int}/{categoria?}")]
     public IActionResult Index(int id, string categoria)
     {
+        var filme = new Filme
+        {
+            Titulo = "oi",
+            DataLancamento = DateTime.Now,
+            Genero = null,
+            Avaliacao = 10,
+            Valor = 20000 
+        };
+
+       
+        return RedirectToAction("Privacy",filme);
         return View();
+
+
     }
 
     [Route("privacidade")]
     [Route("politica-de-privacidade")]
-    public IActionResult Privacy()
+    public IActionResult Privacy(Filme filme)
     {
-        return Content("Qualquer coisa");
+        if (ModelState.IsValid){
+
+        }
+
+        foreach (var error in ModelState.Values.SelectMany( m => m.Errors))
+        {
+            System.Console.WriteLine(error.ErrorMessage);
+        }
+        //return Content("Qualquer coisa");
         return View();
     }
 
