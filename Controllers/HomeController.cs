@@ -14,9 +14,10 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
+    [Route("")]
     [Route("pagina-inicial")]
-    public IActionResult Index(string id, string categoria)
+    [Route("pagina-inicial/{id:int}/{categoria?}")]
+    public IActionResult Index(int id, string categoria)
     {
         return View();
     }
