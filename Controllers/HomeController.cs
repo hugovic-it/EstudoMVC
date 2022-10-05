@@ -26,12 +26,19 @@ public class HomeController : Controller
     [Route("politica-de-privacidade")]
     public IActionResult Privacy()
     {
+        return Content("Qualquer coisa");
         return View();
     }
 
+    [Route("Privacys")]
     public IActionResult Privacys()
     {
-        return View("Privacy"); //especificando a view
+        var fileBytes = System.IO.File.ReadAllBytes(@"D:\arquivo.txt");
+        var fileName = "ola.txt";
+        return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        //return View("Privacy"); //especificando a view
+
+        
     }
     
     [Route("Error")]
